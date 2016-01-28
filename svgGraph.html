@@ -1,0 +1,35 @@
+<svg id="SVGgraph">
+
+
+
+    <g>
+
+        <line class="line" ng-repeat="line in lines" ng-attr-x1="{{line.x0}}" ng-attr-y1="{{line.y0}}" ng-attr-x2="{{line.x1}}" ng-attr-y2="{{line.y1}}" stroke-width="2" stroke="rgb(0,0,0)" />
+
+        <circle ng-repeat="line in lines" ng-attr-cx="{{line.x1}}" ng-attr-cy="{{line.y1}}" r="5" fill="rgb(234,234,234)" stroke-width="1" stroke="rgb(0,0,0)" onmouseover="evt.target.setAttribute('r', '20');" onmouseout="evt.target.setAttribute('r', '5');" />
+
+    </g>
+
+    <!--x line-->
+    <line ng-attr-x1="{{XOffset}}" y1='320' x2='540' y2='320' stroke-width='2' stroke='rgb(0,0,0)' />
+
+    <!-- y line-->
+    <line ng-attr-x1="{{XOffset}}" ng-attr-y1="{{YOffset}}" ng-attr-x2="{{XOffset}}" y2='320' stroke-width='2' stroke='rgb(0,0,0)' />
+
+
+
+    <g ng-repeat="i in getPointsArray(points) track by $index">
+
+        <!--markers x-->
+        <text class='pointText' ng-attr-x="{{blockX * ($index + 1)-10}}" y="340" fill="red">{{blockX * ($index + 1) + pointsOffsetX}}</text>
+        <line ng-attr-x1="{{blockX * ($index + 1)}}" y1='325' ng-attr-x2="{{blockX * ($index + 1)}}" y2='320' stroke-width='2' stroke='rgb(0,0,0)' />
+
+        <!--markers Y-->
+        <text ng-attr-x="{{XOffset - 35}}" ng-attr-y="{{blockY * $index + YOffset +5}}" fill='red'>{{lengthY - (blockY * $index)}}</text>
+        <line ng-attr-x1="{{XOffset - 5}}" ng-attr-y1="{{(blockY * $index) + YOffset}}" ng-attr-x2="{{XOffset}}" ng-attr-y2="{{(blockY * $index) + YOffset}}" stroke-width='2' stroke='rgb(0,0,0)' />
+    </g>
+
+
+
+
+</svg>

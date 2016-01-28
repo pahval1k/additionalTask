@@ -1,0 +1,10 @@
+<div class="btn-group" ng-class="{ open: openDropdown }">
+  <button type="button" class="btn btn-default dropdown-toggle" ng-click="dropdownToggle()">
+    Label <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li ng-repeat-start="menuItem in menu"><a ng-click="sendRequest(menuItem)" class="menuItem">{{menuItem.menuLabel}} <span class="glyphicon pull-right" id="{{menuItem.menuId}}"></span> </a></li>
+    
+    <li ng-if="!$last" role="separator" class="divider" ng-repeat-end></li>
+  </ul>
+</div>
